@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador de Transporte de Paquetes</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Organizador de Transporte de Paquetes</h1>
+
+  <label for="origin">Origen:</label>
+  <input type="text" id="origin" placeholder="Ingrese la dirección de origen">
+
+  <label for="destination">Destino:</label>
+  <input type="text" id="destination" placeholder="Ingrese la dirección de destino">
+
+  <button onclick="displayExampleRoute()">Cargar Ruta de Ejemplo</button>
+
+  <table id="routeTable">
+    <thead>
+      <tr>
+        <th>Paso</th>
+        <th>Instrucción</th>
+        <th>Distancia</th>
+        <th>Duración</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    function displayExampleRoute() {
+      const exampleSteps = [
+        {
+          instructions: 'Gira a la derecha en la primera calle',
+          distance: { text: '500 m' },
+          duration: { text: '2 min' }
+        },
+        {
+          instructions: 'Continúa recto en la rotonda',
+          distance: { text: '1 km' },
+          duration: { text: '3 min' }
+        },
+        {
+          instructions: 'Gira a la izquierda en la segunda calle',
+          distance: { text: '700 m' },
+          duration: { text: '4 min' }
+        }
+      ];
+
+      displayRoute(exampleSteps);
+    }
+
+    function displayRoute(steps) {
+      const tableBody = document.querySelector('#routeTable tbody');
+      tableBody.innerHTML = '';
+
+      steps.forEach((step, index) => {
+        const row = tableBody.insertRow();
+        const cellStep = row.insertCell(0);
+        const cellInstruction = row.insertCell(1);
+        const cellDistance = row.insertCell(2);
+        const cellDuration = row.insertCell(3);
+
+        cellStep.textContent = index + 1;
+        cellInstruction.textContent = step.instructions;
+        cellDistance.textContent = step.distance.text;
+        cellDuration.textContent = step.duration.text;
+      });
+    }
+  </script>
+</body>
+</html>

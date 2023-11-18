@@ -1,0 +1,12 @@
+{
+  "name": "envio_paquetes",
+  "version": "1.0.0",
+  "description": "Pagina web para ayudar a los usuarios a enviar paquetes por el país.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
